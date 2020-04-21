@@ -84,6 +84,9 @@ html
       .case (.name "Named Arguments") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/named-arguments.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/named-arguments.ts)
+      .case (.name "Method Extension") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/method-extension.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/method-extension.ts)
 
     .section
       .title CLASSES
