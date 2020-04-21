@@ -1,4 +1,91 @@
-<!DOCTYPE html><html><head><title>Kotlin is like TypeScript</title><meta charset="utf-8"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/highlightjs-github.css"><script src="js/highlight.9.4.0.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><a target="_blank" href="https://github.com/gi-no/kotlin-is-like-typescript"><img id="fork-me" src="http://nilhcem.github.io/swift-is-like-kotlin/fork-me.png"></a><div id="note">Kotlin is like TypeScript</div><div class="section"><div class="title">BASICS</div><div class="case"><div class="name">Hello World</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>println("Hello, world!")
+<!DOCTYPE html><html><head><title>Kotlin is like TypeScript</title><meta charset="utf-8"><style>body {
+    font-family: "Helvetica Neue", sans-serif;
+    margin: 0;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.section {
+    background-color: #f4f4f4;
+    padding: 4em 3em;
+}
+
+.section:nth-child(2n) {
+    background-color: white;
+}
+
+.title {
+    font-size: 2.7em;
+    color: #888;
+    font-weight: 100;
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+.case {}
+
+.name {
+    font-size: 1.8em;
+    color: #444;
+    font-weight: 300;
+    text-align: center;
+    margin: 60px;
+}
+
+.pair {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-box-pack: center;
+    -ms-box-align: center;
+}
+
+.card {
+    flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    max-width: 590px;
+    margin: 0 10px;
+}
+
+.lang {
+    font-size: 1.3em;
+    color: #666;
+    padding-bottom: 0;
+    font-weight: 200;
+    letter-spacing: 0.07em;
+}
+
+.code {
+    font-size: 1.15em;
+    background-color: white;
+    margin: 0.4em 0 0 0;
+    padding: 0.4em;
+    line-height: 1.3em;
+}
+.section:nth-child(2n) .code {
+    background-color: #f4f4f4;
+}
+
+#fork-me {
+    position: absolute;
+    right: 0;
+}
+
+#note {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    padding: 0.6em;
+    background: #414141;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><a target="_blank" href="https://github.com/gi-no/kotlin-is-like-typescript"><img id="fork-me" src="http://nilhcem.github.io/swift-is-like-kotlin/fork-me.png"></a><div id="note">Kotlin is like TypeScript</div><div class="section"><div class="title">BASICS</div><div class="case"><div class="name">Hello World</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>println("Hello, world!")
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>console.log("Hello, world!");
 </code></pre></div></div></div><div class="case"><div class="name">Variables And Constants</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>var myVariable = 42
 myVariable = 50
@@ -7,14 +94,54 @@ val myConstant = 42
 myVariable = 50;
 const myConstant = 42;
 </code></pre></div></div></div><div class="case"><div class="name">Explicit Types</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val explicitDouble: Double = 70.0
-</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const explicitDouble: number = 70;
-</code></pre></div></div></div><div class="case"><div class="name">Type Coercion</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val label = "The width is "
+// Boolean
+// Byte, Short, Int, Long, Float, Double, UByte, UShort, UInt, ULong
+// String
+// Any, Unit
+// Nothing
+// dynamic
+external fun require(module:String): dynamic</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const explicitDouble: number = 70;
+// boolean
+// number
+// string
+// any, void
+// never
+// undefined, null, union: string|number, string|object
+</code></pre></div></div></div><div class="case"><div class="name">Type Inference/Coercion</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val label = "The width is "
 val width = 94
 val widthLabel = label + width
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const label = "The width is ";
 const width = 94;
 const widthLabel = label + width;
-</code></pre></div></div></div><div class="case"><div class="name">String Interpolation</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val apples = 3
+</code></pre></div></div></div><div class="case"><div class="name">Equality</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Structural Equality (‘==’), Referential equality (‘===’), .equals method
+data class User(val id: Int, val nick: String)
+
+fun testEquals() {
+    val first: Any = User(1, "linux_china")
+    val second: Any = User(1, "linux_china")
+    println(first == second)  //true
+    println(first === second)  //false, Referential different
+    println(first.equals(second)) //true
+}
+
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//Equals Operator ( == ), Strict Equals Operator ( === )
+let a: any = 10;
+let b: any = "10"
+console.log(a == b);  //true
+console.log(a == b);  //true
+console.log(a === b); //false, type different</code></pre></div></div></div><div class="case"><div class="name">Nullable/NonNull</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val name1: String = "xx"
+var name2: String? = null
+
+fun testNullable() {
+    name2.length //illegal
+    name2?.length //nullable check
+    name2!!.length //you know that
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let name1: string = "xx"
+let name2: string | null = null
+
+name2.length //null check validation
+let len = name2?.length //nullable check
+name2!.length //you know that</code></pre></div></div></div><div class="case"><div class="name">String Interpolation</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val apples = 3
 val oranges = 5
 val fruitSummary = "I have ${apples + oranges} " +
                    "pieces of fruit."
@@ -59,13 +186,30 @@ for(let index of _.range(1, 6)) {
 // 3 times 5 is 15
 // 4 times 5 is 20
 // 5 times 5 is 25
-</code></pre></div></div></div></div><div class="section"><div class="title">BASICS</div><div class="case"><div class="name">Arrays</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val shoppingList = arrayOf("catfish", "water",
+</code></pre></div></div></div></div><div class="section"><div class="title">COLLECTIONS</div><div class="case"><div class="name">Arrays/List</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val shoppingList = arrayOf("catfish", "water",
     "tulips", "blue paint")
 shoppingList[1] = "bottle of water"
+val freezeList = listOf("first", "second", "third")
+val mutableList = mutableListOf("first", "second", "third")
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let shoppingList = ["catfish", "water",
     "tulips", "blue paint"];
 shoppingList[1] = "bottle of water";
-</code></pre></div></div></div><div class="case"><div class="name">Maps</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val occupations = mutableMapOf(
+</code></pre></div></div></div><div class="case"><div class="name">Set</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val set1 = setOf(1 , 2 , 3 , 4 , 3)
+val mutableSet = mutableSetOf(1 , 2 , 3 , 4 , 3);
+
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let mySet = new Set(); //ES2015
+mySet.add(1);
+mySet.delete(1)</code></pre></div></div></div><div class="case"><div class="name">Stream/Sequence</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val wordsSequence = listOf("one", "two", "three", "four").asSequence()
+val list2 = wordsSequence
+    .filter { println("filter: $it"); it.length > 3 }
+    .map { println("length: ${it.length}"); it.length }
+    .toList()
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let words = ["catfish", "water", "tulips", "blue paint"];
+let list2 = words.filter(word => {
+    return word.length > 3;
+}).map(word => {
+    return word.length
+});</code></pre></div></div></div><div class="case"><div class="name">Map</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val occupations = mutableMapOf(
     "Malcolm" to "Captain",
     "Kaylee" to "Mechanic"
 )
@@ -100,10 +244,12 @@ fun getGasPrices() = GasPrices(3.59, 3.69, 3.79)
     }
     return sum
 }
-sumOf(42, 597, 12)
 
-// sumOf() can also be written in a shorter way:
-fun sumOf(vararg numbers: Int) = numbers.sum()
+fun main3() {
+    sumOf(42, 597, 12)
+    // sumOf() can also be written in a shorter way:
+    fun sumOf(vararg numbers: Int) = numbers.sum()
+}
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function sumOf(...numbers: number[]): number{
     let sum = 0;
     for (let number of numbers) {
@@ -135,13 +281,13 @@ increment(7);
 
 // makeIncrementer can also be written in a shorter way:
 let makeIncrementer = () => (number: number) => 1 + number;
-</code></pre></div></div></div><div class="case"><div class="name">Map</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val numbers = listOf(20, 19, 7, 12)
-numbers.map { 3 * it }
-</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let numbers = [20, 19, 7, 12];
-numbers.map((it) => 3 * it);
-</code></pre></div></div></div><div class="case"><div class="name">Sort</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>listOf(1, 5, 3, 12, 2).sorted()
-</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>[1, 5, 3, 12, 2].sort();
-</code></pre></div></div></div><div class="case"><div class="name">Named Arguments</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun area(width: Int, height: Int) = width * height
+</code></pre></div></div></div><div class="case"><div class="name">Lambda/Arrow Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//lambda
+val printText = { text: String ->
+    println(text)
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//arrow function
+let printText = (text: string) => {
+    console.log(text)
+}</code></pre></div></div></div><div class="case"><div class="name">Named Arguments</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun area(width: Int, height: Int) = width * height
 area(width = 2, height = 3)
 
 // This is also possible with named arguments
@@ -151,7 +297,42 @@ area(height = 3, width = 2)
     return width * height;
 }
 area({width: 2, height: 3});
-</code></pre></div></div></div></div><div class="section"><div class="title">CLASSES</div><div class="case"><div class="name">Declaration</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Shape {
+</code></pre></div></div></div><div class="case"><div class="name">Optional/Default Value Params</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Optional Parameters by default value
+fun sayHello(name: String = "") {
+
+}
+
+fun main4() {
+    sayHello()
+    sayHello("Jackie")
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>// Optional Parameters
+function sayHello(hello?: string) {
+    console.log(hello);
+}
+
+//default-initialized parameters
+function buildName(firstName: string, lastName = "Smith") {
+    return firstName + " " + lastName;
+}
+
+sayHello()
+sayHello("Jackie")
+
+buildName("Jack")
+buildName("Jack", "Ma")
+</code></pre></div></div></div><div class="case"><div class="name">Method Extension</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>import kotlin.js.RegExp
+
+fun String.isEmailValid(): Boolean {
+    val pattern = RegExp("^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$", "i")
+    return pattern.test(this)
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>declare interface String {
+    isEmailValid(): boolean;
+}
+
+String.prototype.isEmailValid = function (this: string): boolean {
+    let re = new RegExp("^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$", 'i');
+    return re.test(this);
+};</code></pre></div></div></div></div><div class="section"><div class="title">CLASSES</div><div class="case"><div class="name">Declaration</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Shape {
     var numberOfSides = 0
     fun simpleDescription() =
         "A shape with $numberOfSides sides."
@@ -245,7 +426,7 @@ for (let item in library) {
         ++songCount;
     }
 }
-</code></pre></div></div></div><div class="case"><div class="name">Downcasting</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>for (current in someObjects) {
+</code></pre></div></div></div><div class="case"><div class="name">DownCasting</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>for (current in someObjects) {
     if (current is Movie) {
         println("Movie: '${current.name}', " +
 	    "dir. ${current.director}")
@@ -257,7 +438,7 @@ for (let item in library) {
             `dir. ${movie.director}`);
     }
 }
-</code></pre></div></div></div><div class="case"><div class="name">Protocol</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>interface Nameable {
+</code></pre></div></div></div><div class="case"><div class="name">Protocol/Interface</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>interface Nameable {
     fun name(): String
 }
 
@@ -271,4 +452,111 @@ fun f&lt;T: Nameable>(x: T) {
 function f(x: Nameable) {
     console.log("Name is " + x.name());
 }
-</code></pre></div></div></div></div></body></html>
+</code></pre></div></div></div><div class="case"><div class="name">Enums</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>enum class Direction {
+    NORTH, SOUTH, WEST, EAST
+}
+
+enum class Color(val rgb: Int) {
+        RED(0xFF0000),
+        GREEN(0x00FF00),
+        BLUE(0x0000FF)
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>enum Direction {
+    NORTH, SOUTH, WEST, EAST
+}
+
+enum Arrow {
+    Up = "UP",
+    Down = "DOWN",
+    Left = "LEFT",
+    Right = "RIGHT",
+}</code></pre></div></div></div><div class="case"><div class="name">Annotations/Decorators</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
+        AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
+@Retention(AnnotationRetention.SOURCE)
+@MustBeDocumented
+annotation class Fancy
+
+@Fancy class Foo {
+    @Fancy fun baz(@Fancy foo: Int): Int {
+        return (@Fancy 1)
+    }
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function enumerable(value: boolean) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.enumerable = value;
+    };
+}
+
+class Greeter {
+    greeting: string;
+
+    constructor(message: string) {
+        this.greeting = message;
+    }
+
+    @enumerable(false)
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}</code></pre></div></div></div></div><div class="section"><div class="title">Async</div><div class="case"><div class="name">Coroutines/Promise</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>suspend fun findNickById(id: Int): String {
+    return "nick $id"
+}
+
+suspend fun main() {
+    val nick = findNickById(1)
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//Promise
+const promise1 = new Promise<string>((resolve, reject) => {
+    resolve("good")
+    //reject(new Error('failed'));
+});
+
+promise1.then(value => {
+    console.log('Hi', value);
+}).catch(error => {
+    console.log('Oops', error);
+});
+
+(async () => {
+    let value = await promise1
+    console.log(value)
+})();
+
+</code></pre></div></div></div><div class="case"><div class="name">Flow/Observable</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.onEach
+
+fun findVip(): Flow<String> {
+    return arrayOf("first", "second").asFlow()
+}
+
+fun main2() {
+    findVip().onEach {
+        print(it)
+    }
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>import { from } from 'rxjs';
+const result = from( [10, 20, 30]);
+
+result.subscribe(x => console.log(x));
+</code></pre></div></div></div></div><div class="section"><div class="title">Module</div><div class="case"><div class="name">External Declare</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>@file:JsModule("lodash")
+package lodash
+
+@JsName("toUpper")
+external fun toUpper(text: String): String
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//index.d.ts
+export = _;
+export as namespace _;
+
+declare const _: _.LoDashStatic;
+declare namespace _ {
+    interface LoDashStatic {
+    }
+}
+</code></pre></div></div></div><div class="case"><div class="name">Module Export</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>@JsExport
+@JsName("hello")
+fun hello(name: String): String {
+    return "Hello name"
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>export function hello(name: string): string {
+    return `Hello ${name}!`
+}</code></pre></div></div></div></div><div class="section"><div class="title">Tools/Library</div><div class="case"><div class="name">Tools</div><div class="pair"><div class="card"><div class="lang">markdown</div><pre class="code"><code>### Kotlin Tools
+* Gradle: project build tool with dev server support
+* dukat: Convert declarations(d.ts) to Kotlin external declarations</code></pre></div><div class="card"><div class="lang">markdown</div><pre class="code"><code>### TypeScript Tools
+* npm/yarn: project build tool
+* webpack: bundle your assets and dev-server support</code></pre></div></div></div></div></body></html>
