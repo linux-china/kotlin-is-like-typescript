@@ -4,7 +4,7 @@ html
   head
     title "Kotlin is like TypeScript"
     meta (:charset utf-8)
-    link (:rel stylesheet) (:href css/style.css)
+    style (@insert ../css/style.css)
     link (:rel stylesheet) (:href https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css)
     script (:src https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js)
     script "hljs.initHighlightingOnLoad();"
