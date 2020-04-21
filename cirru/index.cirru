@@ -124,3 +124,9 @@ html
       .case (.name "Flow/Observable") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/flow.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/flow.ts)
+
+    .section
+      .title Tools/Library
+      .case (.name "Tools") $ .pair
+        .card (.lang Text) $ pre.code $ code (@insert ../code/tools-kt.txt)
+        .card (.lang Text) $ pre.code $ code (@insert ../code/tools-ts.txt)
