@@ -84,6 +84,9 @@ html
       .case (.name "Named Arguments") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/named-arguments.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/named-arguments.ts)
+      .case (.name "Optional/Default Value Params") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/optional-params.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/optional-params.ts)
       .case (.name "Method Extension") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/method-extension.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/method-extension.ts)
@@ -137,5 +140,5 @@ html
     .section
       .title Tools/Library
       .case (.name "Tools") $ .pair
-        .card (.lang Text) $ pre.code $ code (@insert ../code/tools-kt.txt)
-        .card (.lang Text) $ pre.code $ code (@insert ../code/tools-ts.txt)
+        .card (.lang markdown) $ pre.code $ code (@insert ../code/tools-kt.md)
+        .card (.lang markdown) $ pre.code $ code (@insert ../code/tools-ts.md)
