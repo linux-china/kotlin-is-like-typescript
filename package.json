@@ -8,6 +8,10 @@
   },
   "author": "jiyinyiyong, nilhcem, linux_china",
   "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "rxjs": "^6.5.5"
+  },
   "devDependencies": {
     "mission": "0.0.9",
     "shelljs": "^0.8.3",
