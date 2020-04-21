@@ -57,7 +57,7 @@ html
       .case (.name "Stream/Sequence") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/stream.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/stream.ts)
-      .case (.name "Maps") $ .pair
+      .case (.name "Map") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/maps.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/maps.ts)
       .case (.name "Empty Collections") $ .pair
@@ -78,12 +78,9 @@ html
       .case (.name "Function Type") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/function-type.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/function-type.ts)
-      .case (.name "Map") $ .pair
-        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/map.kt)
-        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/map.ts)
-      .case (.name "Sort") $ .pair
-        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/sort.kt)
-        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/sort.ts)
+      .case (.name "Lambda/Arrow Function") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/lambda.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/lambda.ts)
       .case (.name "Named Arguments") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/named-arguments.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/named-arguments.ts)
