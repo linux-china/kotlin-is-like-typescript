@@ -6,7 +6,7 @@ html
     meta (:charset utf-8)
     link (:rel stylesheet) (:href css/style.css)
     link (:rel stylesheet) (:href css/highlightjs-github.css)
-    script (:src js/highlight.9.4.0.js)
+    script (:src js/highlight.9.18.1.js)
     script "hljs.initHighlightingOnLoad();"
 
   body
