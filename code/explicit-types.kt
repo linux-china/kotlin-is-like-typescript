@@ -4,3 +4,5 @@ val explicitDouble: Double = 70.0
 // String
 // Any, Unit
 // Nothing
+// dynamic
+external fun require(module:String): dynamic
