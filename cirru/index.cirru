@@ -41,10 +41,13 @@ html
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/inclusive-range-operator.ts)
 
     .section
-      .title BASICS
-      .case (.name "Arrays") $ .pair
+      .title COLLECTIONS
+      .case (.name "Arrays/List") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/arrays.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/arrays.ts)
+      .case (.name "Set") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/set.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/set.ts)
       .case (.name "Maps") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/maps.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/maps.ts)
