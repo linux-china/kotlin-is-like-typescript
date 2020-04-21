@@ -105,3 +105,9 @@ html
       .case (.name "Protocol") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/protocol.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/protocol.ts)
+
+    .section
+      .title Async
+      .case (.name "Declaration") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/coroutines.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/coroutines.ts)
