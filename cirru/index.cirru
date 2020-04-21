@@ -30,6 +30,9 @@ html
       .case (.name "Type Coercion") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/type-coercion.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/type-coercion.ts)
+      .case (.name "Equality") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/equals.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/equals.ts)
       .case (.name "String Interpolation") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/string-interpolation.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/string-interpolation.ts)
