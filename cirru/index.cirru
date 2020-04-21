@@ -125,6 +125,15 @@ html
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/flow.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/flow.ts)
 
+   .section
+      .title Module
+      .case (.name "External Declare") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/external-declare.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/external-declare.d.ts)
+      .case (.name "Module Export") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/module-export.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/module-export.ts)
+
     .section
       .title Tools/Library
       .case (.name "Tools") $ .pair
