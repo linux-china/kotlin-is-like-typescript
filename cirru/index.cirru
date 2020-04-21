@@ -99,12 +99,15 @@ html
       .case (.name "Checking Type") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/checking-type.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/checking-type.ts)
-      .case (.name "Downcasting") $ .pair
+      .case (.name "DownCasting") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/downcasting.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/downcasting.ts)
-      .case (.name "Protocol") $ .pair
+      .case (.name "Protocol/Interface") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/protocol.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/protocol.ts)
+      .case (.name "Enums") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/enums.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/enums.ts)
 
     .section
       .title Async
