@@ -108,6 +108,9 @@ html
 
     .section
       .title Async
-      .case (.name "Declaration") $ .pair
+      .case (.name "Coroutines/Promise") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/coroutines.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/coroutines.ts)
+      .case (.name "Flow/Observable") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/flow.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/flow.ts)
