@@ -1,31 +1,28 @@
 {
-  "name": "swift-is-like-kotlin",
+  "name": "kotlin-is-like-typescript",
   "version": "0.0.2",
-  "description": "Swift is like Kotlin ------",
+  "description": "Kotlin is like TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "coffee make.coffee"
   },
-  "author": "jiyinyiyong, nilhcem",
+  "author": "jiyinyiyong, nilhcem, linux_china",
   "license": "MIT",
   "devDependencies": {
-    "mission": "0.0.7",
-    "shelljs": "^0.3.0"
-  },
-  "dependencies": {
-    "mission": "^0.0.7",
-    "shelljs": "^0.3.0"
+    "mission": "0.0.9",
+    "shelljs": "^0.8.3",
+    "coffeescript": "^2.5.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nilhcem/swift-is-like-kotlin.git"
+    "url": "https://github.com/gi-no/kotlin-is-like-typescript.git"
   },
   "keywords": [
-    "swift",
+    "typescript",
     "kotlin"
   ],
   "bugs": {
-    "url": "https://github.com/Nilhcem/swift-is-like-kotlin/issues"
+    "url": "https://github.com/gi-no/kotlin-is-like-typescript/issues"
   },
-  "homepage": "https://github.com/Nilhcem/swift-is-like-kotlin"
+  "homepage": "https://github.com/gi-no/kotlin-is-like-typescript"
 }
