@@ -48,6 +48,9 @@ html
       .case (.name "Set") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/set.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/set.ts)
+      .case (.name "Stream/Sequence") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/stream.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/stream.ts)
       .case (.name "Maps") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/maps.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/maps.ts)
