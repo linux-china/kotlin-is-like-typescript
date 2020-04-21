@@ -108,6 +108,10 @@ html
       .case (.name "Enums") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/enums.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/enums.ts)
+      .case (.name "Annotations/Decorators") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/annotations.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/annotations.ts)
+
 
     .section
       .title Async
