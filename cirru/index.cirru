@@ -27,7 +27,7 @@ html
       .case (.name "Explicit Types") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/explicit-types.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/explicit-types.ts)
-      .case (.name "Type Coercion") $ .pair
+      .case (.name "Type Inference/Coercion") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/type-coercion.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/type-coercion.ts)
       .case (.name "Equality") $ .pair
