@@ -4,7 +4,7 @@
   "description": "Kotlin is like TypeScript",
   "main": "index.js",
   "scripts": {
-    "build": "coffee make.coffee"
+    "build": "coffee make.coffee dev"
   },
   "author": "jiyinyiyong, nilhcem, linux_china",
   "license": "MIT",
