@@ -4,4 +4,4 @@ const explicitDouble: number = 70;
 // string
 // any, void
 // never
-// undefined, null, Symbol, union: string|number, string|object
+// undefined, unknown, null, Symbol, union: string|number, string|object
