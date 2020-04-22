@@ -140,7 +140,10 @@ html
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/flow.ts)
 
    .section
-      .title Module
+      .title Module/Namespace
+      .case (.name "Namespace") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/namespace.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/namespace.ts)
       .case (.name "External Declare") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/external-declare.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/external-declare.d.ts)
