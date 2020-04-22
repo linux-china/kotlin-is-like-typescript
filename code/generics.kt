@@ -1,7 +1,5 @@
-interface Consumer<T> {
-    fun accept(obj: T)
+class Box<T>(val value: T) {
+
 }
 
-fun <T> singletonList(item: T): List<T> {
-    return listOf(item)
-}
+val box = Box<Double>(1.0)

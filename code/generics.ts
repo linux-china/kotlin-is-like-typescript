@@ -1,7 +1,9 @@
-interface Consumer<T> {
-    accept(obj: T): void
+class Box<T> {
+    value: T;
+
+    constructor(value: T) {
+        this.value = value;
+    }
 }
 
-function identity<T>(arg: T): T {
-    return arg;
-}
+let x: Box<number> = new Box(1.0);
