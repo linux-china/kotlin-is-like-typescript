@@ -30,6 +30,9 @@ html
       .case (.name "Type Inference/Coercion") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/type-coercion.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/type-coercion.ts)
+      .case (.name "Type Aliases") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/type-aliases.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/type-aliases.ts)
       .case (.name "Equality") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/equals.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/equals.ts)
