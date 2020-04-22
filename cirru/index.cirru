@@ -27,7 +27,7 @@ html
       .case (.name "Explicit Types") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/explicit-types.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/explicit-types.ts)
-      .case (.name "Type Inference/Coercion") $ .pair
+      .case (.name "Type Inference") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/type-coercion.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/type-coercion.ts)
       .case (.name "Type Aliases") $ .pair
@@ -129,6 +129,9 @@ html
       .case (.name "Indexed operator/Indexable Types") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/indexable-types.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/indexable-types.kt)
+     .case (.name "Data Class") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/data-class.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/data-class.kt)
       .case (.name "Generics") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/generics.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generics.kt)
