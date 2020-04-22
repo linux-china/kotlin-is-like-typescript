@@ -7,16 +7,12 @@ class Movie {
 class Song {
 }
 
-function counter(item: any) {
+let library: any[] = [new Movie(), new Song()]
+
+for (const item of library) {
     if (item instanceof Movie) {
         ++movieCount;
     } else if (item instanceof Song) {
         ++songCount;
     }
-}
-
-let library: any[] = [new Movie(), new Song()]
-
-for (let item in library) {
-    counter(item)
 }
