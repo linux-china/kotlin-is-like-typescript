@@ -135,7 +135,7 @@ html
      .case (.name "Data Class") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/data-class.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/data-class.kt)
-     .case (.name "readonly") $ .pair
+     .case (.name "readonly property") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/readonly.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/readonly.kt)
       .case (.name "Generics") $ .pair
