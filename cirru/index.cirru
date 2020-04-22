@@ -87,6 +87,9 @@ html
       .case (.name "Named Arguments") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/named-arguments.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/named-arguments.ts)
+      .case (.name "Function Generics") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/function-generics.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/function-generics.ts)
       .case (.name "Optional/Default Value Params") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/optional-params.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/optional-params.ts)
