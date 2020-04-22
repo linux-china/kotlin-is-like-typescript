@@ -113,7 +113,9 @@ val widthLabel = label + width
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const label = "The width is ";
 const width = 94;
 const widthLabel = label + width;
-</code></pre></div></div></div><div class="case"><div class="name">Equality</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Structural Equality (‘==’), Referential equality (‘===’), .equals method
+</code></pre></div></div></div><div class="case"><div class="name">Type Aliases</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>typealias Name = String;
+typealias NameResolver = () -> String;</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>type Name = string;
+type NameResolver = () => string;</code></pre></div></div></div><div class="case"><div class="name">Equality</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Structural Equality (‘==’), Referential equality (‘===’), .equals method
 data class User(val id: Int, val nick: String)
 
 fun testEquals() {
