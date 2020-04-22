@@ -114,6 +114,9 @@ html
       .case (.name "Protocol/Interface") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/protocol.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/protocol.ts)
+      .case (.name "Mixins") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/mixins.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/mixins.ts)
       .case (.name "Enums") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/enums.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/enums.ts)
