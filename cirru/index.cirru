@@ -60,6 +60,9 @@ html
       .case (.name "Map") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/maps.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/maps.ts)
+      .case (.name "Tuple") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/tuples.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/tuples.ts)
       .case (.name "Empty Collections") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/empty-collections.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/empty-collections.ts)
@@ -69,9 +72,6 @@ html
       .case (.name "Functions") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/functions.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/functions.ts)
-      .case (.name "Tuple Return") $ .pair
-        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/tuple-return.kt)
-        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/tuple-return.ts)
       .case (.name "Variable Number Of Arguments") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/variable-number-of-arguments.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/variable-number-of-arguments.ts)
