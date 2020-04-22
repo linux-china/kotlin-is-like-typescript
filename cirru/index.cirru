@@ -123,7 +123,9 @@ html
       .case (.name "Indexed operator/Indexable Types") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/indexable-types.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/indexable-types.kt)
-
+      .case (.name "Generics") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/generics.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generics.kt)
 
     .section
       .title Async
