@@ -120,6 +120,9 @@ html
       .case (.name "Object as Function") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/object-as-function.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/object-as-function.ts)
+      .case (.name "Indexed operator/Indexable Types") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/indexable-types.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/indexable-types.kt)
 
 
     .section
