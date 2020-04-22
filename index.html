@@ -219,7 +219,18 @@ occupations["Jayne"] = "Public Relations"
     "Kaylee": "Mechanic",
 };
 occupations["Jayne"] = "Public Relations";
-</code></pre></div></div></div><div class="case"><div class="name">Empty Collections</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val emptyArray = arrayOf&lt;String>()
+</code></pre></div></div></div><div class="case"><div class="name">Tuple</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>// data class as Tuple in Kotlin
+data class GasPrices(val a: Double, val b: Double, val c: Double)
+
+fun main7() {
+    val price = GasPrices(3.59, 3.69, 3.79)
+    val (a, b, _) = price
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>type GasPrices = [number, number, number]
+
+function main4() {
+    let price: GasPrices = [3.59, 3.69, 3.79]
+    let [a, b, c] = price;
+}</code></pre></div></div></div><div class="case"><div class="name">Empty Collections</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val emptyArray = arrayOf&lt;String>()
 val emptyMap = mapOf&lt;String, Float>()
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const emptyArray: string[];
 const emptyDictionary: {[key: string]: number};
@@ -231,12 +242,6 @@ greet("Bob", "Tuesday")
     return `Hello ${name}, today is ${day}.`
 }
 greet("Bob", "Tuesday");
-</code></pre></div></div></div><div class="case"><div class="name">Tuple Return</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>data class GasPrices(val a: Double, val b: Double,
-     val c: Double)
-fun getGasPrices() = GasPrices(3.59, 3.69, 3.79)
-</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function getGasPrices(): [number, number, number] {
-    return [3.59, 3.69, 3.79];
-}
 </code></pre></div></div></div><div class="case"><div class="name">Variable Number Of Arguments</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun sumOf(vararg numbers: Int): Int {
     var sum = 0
     for (number in numbers) {
@@ -446,8 +451,8 @@ fun f&lt;T: Nameable>(x: T) {
     println("Name is " + x.name())
 }
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>interface Nameable {
-    name():string;
-};
+    name(): string;
+}
 
 function f(x: Nameable) {
     console.log("Name is " + x.name());
@@ -496,6 +501,94 @@ class Greeter {
     greet() {
         return "Hello, " + this.greeting;
     }
+}</code></pre></div></div></div><div class="case"><div class="name">Object as Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Config {
+    operator fun invoke(): String {
+        return "invoke"
+    }
+}
+
+fun main5() {
+    val config = Config()
+    println(config())
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>interface Counter {
+    (start: number): string;
+
+    interval: number;
+
+    reset(): void;
+}
+
+function getCounter(): Counter {
+    let counter = (function (start: number) {
+        console.log("start")
+    }) as Counter;
+    counter.interval = 123;
+    counter.reset = function () {
+    };
+    return counter;
+}
+
+let c = getCounter();
+c(10);
+c.reset();
+c.interval = 5.0;</code></pre></div></div></div><div class="case"><div class="name">Indexed operator/Indexable Types</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Indexed access operator
+class StringArray {
+    operator fun get(index: Int): String {
+        return ""
+    }
+
+    operator fun set(index: Int, value: String) {
+
+    }
+
+    operator fun get(index: String): String {
+        return ""
+    }
+
+    operator fun set(index: String, value: String) {
+
+    }
+}
+
+fun main8() {
+    val stringArray = StringArray()
+    stringArray[0]
+    stringArray["first"] = "second"
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//Indexed access operator
+class StringArray {
+    operator fun get(index: Int): String {
+        return ""
+    }
+
+    operator fun set(index: Int, value: String) {
+
+    }
+
+    operator fun get(index: String): String {
+        return ""
+    }
+
+    operator fun set(index: String, value: String) {
+
+    }
+}
+
+fun main8() {
+    val stringArray = StringArray()
+    stringArray[0]
+    stringArray["first"] = "second"
+}</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>interface Consumer<T> {
+    fun accept(obj: T)
+}
+
+fun <T> singletonList(item: T): List<T> {
+    return listOf(item)
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>interface Consumer<T> {
+    fun accept(obj: T)
+}
+
+fun <T> singletonList(item: T): List<T> {
+    return listOf(item)
 }</code></pre></div></div></div></div><div class="section"><div class="title">Async</div><div class="case"><div class="name">Coroutines/Promise</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>suspend fun findNickById(id: Int): String {
     return "nick $id"
 }
