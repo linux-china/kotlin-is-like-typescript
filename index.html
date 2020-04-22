@@ -106,8 +106,8 @@ external fun require(module:String): dynamic</code></pre></div><div class="card"
 // string
 // any, void
 // never
-// undefined, null, union: string|number, string|object
-</code></pre></div></div></div><div class="case"><div class="name">Type Inference/Coercion</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val label = "The width is "
+// undefined, null, Symbol, union: string|number, string|object
+</code></pre></div></div></div><div class="case"><div class="name">Type Inference</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val label = "The width is "
 val width = 94
 val widthLabel = label + width
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const label = "The width is ";
@@ -304,7 +304,15 @@ area(height = 3, width = 2)
     return width * height;
 }
 area({width: 2, height: 3});
-</code></pre></div></div></div><div class="case"><div class="name">Optional/Default Value Params</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Optional Parameters by default value
+</code></pre></div></div></div><div class="case"><div class="name">Function Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun <T> identity(value: T): T {
+    return value
+}
+
+val str = identity("Hello")</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function identity<T>(value: T): T {
+    return value;
+}
+
+let str: string = identity<string>("Hello");</code></pre></div></div></div><div class="case"><div class="name">Optional/Default Value Params</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Optional Parameters by default value
 fun sayHello(name: String = "") {
 
 }
@@ -340,17 +348,29 @@ String.prototype.isEmailValid = function (this: string): boolean {
     let re = new RegExp("^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$", 'i');
     return re.test(this);
 };</code></pre></div></div></div></div><div class="section"><div class="title">CLASSES</div><div class="case"><div class="name">Declaration</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Shape {
-    var numberOfSides = 0
+    private var numberOfSides = 0
+
+    constructor(numberOfSides: Int) {
+        this.numberOfSides = numberOfSides
+    }
+
     fun simpleDescription() =
         "A shape with $numberOfSides sides."
 }
-</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>class Shape {
+
+val shape2 = Shape(4)</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>class Shape {
     numberOfSides = 0;
+
+    constructor(numberOfSides: number) {
+        this.numberOfSides = numberOfSides;
+    }
+
     simpleDescription(){
         return `A shape with ${this.numberOfSides} sides.`;
     }
 }
-</code></pre></div></div></div><div class="case"><div class="name">Usage</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>var shape = Shape()
+
+let shape2 = new Shape(4)</code></pre></div></div></div><div class="case"><div class="name">Usage</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>var shape = Shape()
 shape.numberOfSides = 7
 var shapeDescription = shape.simpleDescription()
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let shape = new Shape();
@@ -416,22 +436,40 @@ test.simpleDescription();
 </code></pre></div></div></div><div class="case"><div class="name">Checking Type</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>var movieCount = 0
 var songCount = 0
 
-for (item in library) {
-    if (item is Movie) {
-        ++movieCount
-    } else if (item is Song) {
-        ++songCount
+class Movie
+class Song
+
+fun main10() {
+    val library: List<Any> = listOf("first")
+    for (item in library) {
+        if (item is Movie) {
+            ++movieCount
+        } else if (item is Song) {
+            ++songCount
+        }
     }
 }
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let movieCount = 0;
 let songCount = 0;
 
-for (let item in library) {
+class Movie {
+}
+
+class Song {
+}
+
+function counter(item: any) {
     if (item instanceof Movie) {
         ++movieCount;
     } else if (item instanceof Song) {
         ++songCount;
     }
+}
+
+let library: any[] = [new Movie(), new Song()]
+
+for (let item in library) {
+    counter(item)
 }
 </code></pre></div></div></div><div class="case"><div class="name">DownCasting</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>for (current in someObjects) {
     if (current is Movie) {
@@ -459,6 +497,46 @@ fun f&lt;T: Nameable>(x: T) {
 function f(x: Nameable) {
     console.log("Name is " + x.name());
 }
+</code></pre></div></div></div><div class="case"><div class="name">Mixins</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//mixin in Kotlin just Kotlin interface
+interface MyInterface {
+    val prop: Int // abstract
+
+    fun foo() {
+        print(prop)
+    }
+}
+
+class Child : MyInterface {
+    override val prop: Int = 29
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>// Disposable Mixin
+class Disposable {
+    isDisposed: boolean = false;
+
+    dispose() {
+        this.isDisposed = true;
+    }
+}
+
+class SmartObject {
+}
+
+interface SmartObject extends Disposable {
+}
+
+applyMixins(SmartObject, [Disposable]);
+
+let smartObj = new SmartObject();
+smartObj.dispose();
+
+function applyMixins(derivedCtor: any, baseCtors: any[]) {
+    baseCtors.forEach(baseCtor => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+            // @ts-ignore
+            Object.defineProperty(derivedCtor.prototype, name, Object.getOwnPropertyDescriptor(baseCtor.prototype, name));
+        });
+    });
+}
+
 </code></pre></div></div></div><div class="case"><div class="name">Enums</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>enum class Direction {
     NORTH, SOUTH, WEST, EAST
 }
@@ -579,19 +657,21 @@ fun main8() {
     val stringArray = StringArray()
     stringArray[0]
     stringArray["first"] = "second"
-}</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>interface Consumer<T> {
-    fun accept(obj: T)
+}</code></pre></div></div></div><div class="case"><div class="name">Data Class</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>data class Point(val x: Double, val y: Double)
+
+val point = Point(1.0, 2.0);
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>data class Point(val x: Double, val y: Double)
+
+val point = Point(1.0, 2.0);
+</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Box<T>(val value: T) {
+
 }
 
-fun <T> singletonList(item: T): List<T> {
-    return listOf(item)
-}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>interface Consumer<T> {
-    fun accept(obj: T)
+val box = Box<Double>(1.0)</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>class Box<T>(val value: T) {
+
 }
 
-fun <T> singletonList(item: T): List<T> {
-    return listOf(item)
-}</code></pre></div></div></div></div><div class="section"><div class="title">Async</div><div class="case"><div class="name">Coroutines/Promise</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>suspend fun findNickById(id: Int): String {
+val box = Box<Double>(1.0)</code></pre></div></div></div></div><div class="section"><div class="title">Async</div><div class="case"><div class="name">Coroutines/Promise</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>suspend fun findNickById(id: Int): String {
     return "nick $id"
 }
 
@@ -630,7 +710,39 @@ fun main2() {
 const result = from( [10, 20, 30]);
 
 result.subscribe(x => console.log(x));
-</code></pre></div></div></div></div><div class="section"><div class="title">Module</div><div class="case"><div class="name">External Declare</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>@file:JsModule("lodash")
+</code></pre></div></div></div></div><div class="section"><div class="title">Module/Namespace</div><div class="case"><div class="name">Namespace</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>package validation
+
+import kotlin.js.RegExp
+
+val zipCodeRegex = RegExp("[0-9]+")
+
+interface StringValidator {
+    fun isAcceptable(s: String): Boolean;
+}
+
+class ZipCodeValidator : StringValidator {
+    override fun isAcceptable(s: String): Boolean {
+        return s.length == 5 && zipCodeRegex.test(s);
+    }
+}
+
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>namespace Validation {
+    const numberRegexp = /^[0-9]+$/;
+
+    export interface StringValidator {
+        isAcceptable(s: string): boolean;
+    }
+
+    export class ZipCodeValidator implements StringValidator {
+        isAcceptable(s: string): boolean {
+            return s.length === 5 && numberRegexp.test(s);
+        }
+    }
+}
+
+let validators: { [s: string]: Validation.StringValidator; } = {};
+validators["ZipCode"] = new Validation.ZipCodeValidator();
+</code></pre></div></div></div><div class="case"><div class="name">External Declare</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>@file:JsModule("lodash")
 package lodash
 
 @JsName("toUpper")
