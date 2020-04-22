@@ -659,7 +659,19 @@ val point = Point(1.0, 2.0);
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>data class Point(val x: Double, val y: Double)
 
 val point = Point(1.0, 2.0);
-</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Box<T>(val value: T) {
+</code></pre></div></div></div><div class="case"><div class="name">readonly property</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//use val for readonly
+data class Foo2(val bar: Double, val bas: Double)
+
+fun main11() {
+    val foo2 = Foo2(1.0, 2.0)
+    foo2.bar = 2.0 //illegal
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//use val for readonly
+data class Foo2(val bar: Double, val bas: Double)
+
+fun main11() {
+    val foo2 = Foo2(1.0, 2.0)
+    foo2.bar = 2.0 //illegal
+}</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Box<T>(val value: T) {
 
 }
 
