@@ -9,3 +9,5 @@ class Shape {
         return `A shape with ${this.numberOfSides} sides.`;
     }
 }
+
+let shape2 = new Shape(4)

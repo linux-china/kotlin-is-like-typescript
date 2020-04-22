@@ -8,3 +8,5 @@ class Shape {
     fun simpleDescription() =
         "A shape with $numberOfSides sides."
 }
+
+val shape2 = Shape(4)
