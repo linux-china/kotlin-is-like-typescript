@@ -117,6 +117,9 @@ html
       .case (.name "Annotations/Decorators") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/annotations.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/annotations.ts)
+      .case (.name "Object as Function") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/object-as-function.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/object-as-function.ts)
 
 
     .section
