@@ -165,6 +165,9 @@ html
 
     .section
       .title Tools/Library
+      .case (.name "Unit Test") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/unit-test.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/unit.test.ts)
       .case (.name "Tools") $ .pair
         .card (.lang markdown) $ pre.code $ code (@insert ../code/tools-kt.md)
         .card (.lang markdown) $ pre.code $ code (@insert ../code/tools-ts.md)
