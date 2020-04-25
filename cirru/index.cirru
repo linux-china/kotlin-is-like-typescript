@@ -134,10 +134,10 @@ html
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/indexable-types.kt)
      .case (.name "Data Class") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/data-class.kt)
-        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/data-class.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/data-class.ts)
      .case (.name "readonly property") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/readonly.kt)
-        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/readonly.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/readonly.ts)
       .case (.name "Generics") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/generics.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generics.kt)
