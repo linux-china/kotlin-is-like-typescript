@@ -5,3 +5,4 @@ const explicitDouble: number = 70;
 // any, void
 // never
 // undefined, unknown, null, Symbol, union: string|number, string|object
+declare const welcome: any;
