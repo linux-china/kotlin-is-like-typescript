@@ -106,8 +106,8 @@ external fun require(module:String): dynamic</code></pre></div><div class="card"
 // string
 // any, void
 // never
-// undefined, null, Symbol, union: string|number, string|object
-</code></pre></div></div></div><div class="case"><div class="name">Type Inference</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val label = "The width is "
+// undefined, unknown, null, Symbol, union: string|number, string|object
+declare const welcome: any;</code></pre></div></div></div><div class="case"><div class="name">Type Inference</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val label = "The width is "
 val width = 94
 val widthLabel = label + width
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const label = "The width is ";
@@ -188,11 +188,15 @@ for(let index of _.range(1, 6)) {
 // 3 times 5 is 15
 // 4 times 5 is 20
 // 5 times 5 is 25
-</code></pre></div></div></div></div><div class="section"><div class="title">COLLECTIONS</div><div class="case"><div class="name">Arrays/List</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val shoppingList = arrayOf("catfish", "water",
-    "tulips", "blue paint")
-shoppingList[1] = "bottle of water"
-val freezeList = listOf("first", "second", "third")
-val mutableList = mutableListOf("first", "second", "third")
+</code></pre></div></div></div></div><div class="section"><div class="title">COLLECTIONS</div><div class="case"><div class="name">Arrays/List</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun main12() {
+    val shoppingList = arrayOf(
+        "catfish", "water",
+        "tulips", "blue paint"
+    )
+    shoppingList[1] = "bottle of water"
+    val freezeList = listOf("first", "second", "third")
+    val mutableList = mutableListOf("first", "second", "third")
+}
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let shoppingList = ["catfish", "water",
     "tulips", "blue paint"];
 shoppingList[1] = "bottle of water";
@@ -232,7 +236,27 @@ fun main7() {
 function main4() {
     let price: GasPrices = [3.59, 3.69, 3.79]
     let [a, b, c] = price;
-}</code></pre></div></div></div><div class="case"><div class="name">Empty Collections</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val emptyArray = arrayOf&lt;String>()
+}</code></pre></div></div></div><div class="case"><div class="name">Filter/Map/Reduce</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun main13() {
+    val shoppingList = arrayOf("catfish", "water", "tulips", "blue paint")
+    shoppingList.filter { it.startsWith("c") }
+        .map { it.length }
+        .reduce { acc, i -> acc + i }
+
+    shoppingList.filter { it.startsWith("c") }
+        .forEach(::println)
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let shoppingList2 = ["catfish", "water", "tulips", "blue paint"];
+
+shoppingList2
+    .filter(item => item.startsWith("c"))
+    .map(item => item.length)
+    .reduce((acc, item) => acc + item)
+
+shoppingList2
+    .filter(item => item.startsWith("c"))
+    .forEach(item => {
+        console.log(item)
+    })
+</code></pre></div></div></div><div class="case"><div class="name">Empty Collections</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val emptyArray = arrayOf&lt;String>()
 val emptyMap = mapOf&lt;String, Float>()
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const emptyArray: string[];
 const emptyDictionary: {[key: string]: number};
@@ -458,7 +482,7 @@ class Movie {
 class Song {
 }
 
-let library: any[] = [new Movie(), new Song()]
+let library: unknown[] = [new Movie(), new Song()]
 
 for (const item of library) {
     if (item instanceof Movie) {
@@ -656,22 +680,24 @@ fun main8() {
 }</code></pre></div></div></div><div class="case"><div class="name">Data Class</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>data class Point(val x: Double, val y: Double)
 
 val point = Point(1.0, 2.0);
-</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>data class Point(val x: Double, val y: Double)
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>type Point = {
+    x: number,
+    y: number
+}
 
-val point = Point(1.0, 2.0);
-</code></pre></div></div></div><div class="case"><div class="name">readonly property</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//use val for readonly
+let point: Point = {x: 1.0, y: 2.0};</code></pre></div></div></div><div class="case"><div class="name">readonly property</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//use val for readonly
 data class Foo2(val bar: Double, val bas: Double)
 
 fun main11() {
     val foo2 = Foo2(1.0, 2.0)
     foo2.bar = 2.0 //illegal
-}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//use val for readonly
-data class Foo2(val bar: Double, val bas: Double)
-
-fun main11() {
-    val foo2 = Foo2(1.0, 2.0)
-    foo2.bar = 2.0 //illegal
-}</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Box<T>(val value: T) {
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>type Foo2 = {
+    readonly bar: number;
+    readonly bas: number;
+};
+const foo: Foo2 = {bar: 123, bas: 456};
+foo.bar = 456; // illegal
+</code></pre></div></div></div><div class="case"><div class="name">Generics</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Box<T>(val value: T) {
 
 }
 
@@ -770,7 +796,21 @@ fun hello(name: String): String {
     return "Hello name"
 }</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>export function hello(name: string): string {
     return `Hello ${name}!`
-}</code></pre></div></div></div></div><div class="section"><div class="title">Tools/Library</div><div class="case"><div class="name">Tools</div><div class="pair"><div class="card"><div class="lang">markdown</div><pre class="code"><code>### Kotlin Tools
+}</code></pre></div></div></div></div><div class="section"><div class="title">Tools/Library</div><div class="case"><div class="name">Unit Test</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>// testImplementation(kotlin("test-js")) in build.gradle.ts
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class DemoTest {
+    @Test
+    fun testBar() {
+        console.log("Hello World!")
+        assertEquals(4, 2 * 2)
+    }
+}
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>// jest, ts-jest
+test("hello test", () => {
+    console.log("hello test");
+});</code></pre></div></div></div><div class="case"><div class="name">Tools</div><div class="pair"><div class="card"><div class="lang">markdown</div><pre class="code"><code>### Kotlin Tools
 * Gradle: project build tool with dev server support
 * dukat: Convert declarations(d.ts) to Kotlin external declarations</code></pre></div><div class="card"><div class="lang">markdown</div><pre class="code"><code>### TypeScript Tools
 * npm/yarn: project build tool
