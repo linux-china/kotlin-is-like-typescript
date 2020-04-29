@@ -66,6 +66,9 @@ html
       .case (.name "Tuple") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/tuples.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/tuples.ts)
+      .case (.name "Filter/Map/Reduce") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/mapreduce.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/mapreduce.ts)
       .case (.name "Empty Collections") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/empty-collections.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/empty-collections.ts)
