@@ -143,7 +143,10 @@ html
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/readonly.ts)
       .case (.name "Generics") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/generics.kt)
-        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generics.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generics.ts)
+      .case (.name "Dynamic keys") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/dynamic-keys.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/dynamic-keys.ts)
 
     .section
       .title Async
