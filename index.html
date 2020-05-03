@@ -701,11 +701,27 @@ foo.bar = 456; // illegal
 
 }
 
-val box = Box<Double>(1.0)</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>class Box<T>(val value: T) {
+val box = Box<Double>(1.0)</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>class Box<T> {
+    value: T;
 
+    constructor(value: T) {
+        this.value = value;
+    }
 }
 
-val box = Box<Double>(1.0)</code></pre></div></div></div></div><div class="section"><div class="title">Async</div><div class="case"><div class="name">Coroutines/Promise</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>suspend fun findNickById(id: Int): String {
+let x: Box<number> = new Box(1.0);</code></pre></div></div></div><div class="case"><div class="name">Dynamic keys</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class MyClass {
+    private val store = mutableMapOf<String, Any>()
+    operator fun get(key: String): Any? {
+        return store[key]
+    }
+
+    operator fun set(key: String, value: Any) {
+        store[key] = value
+    }
+}
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>interface DictionarySupport {
+    [index: string]: any;
+}</code></pre></div></div></div></div><div class="section"><div class="title">Async</div><div class="case"><div class="name">Coroutines/Promise</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>suspend fun findNickById(id: Int): String {
     return "nick $id"
 }
 
