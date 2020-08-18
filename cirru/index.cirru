@@ -99,6 +99,9 @@ html
       .case (.name "Generator Function") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/generator.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generator.ts)
+      .case (.name "Async Generator Function") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/generator_async.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/generator_async.ts)
       .case (.name "Optional/Default Value Params") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/optional-params.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/optional-params.ts)
