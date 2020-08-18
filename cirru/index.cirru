@@ -135,7 +135,7 @@ html
       .case (.name "Annotations/Decorators") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/annotations.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/annotations.ts)
-      .case (.name "Object as Function") $ .pair
+      .case (.name "Object as Function/invoke operator/Hybrid Types") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/object-as-function.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/object-as-function.ts)
       .case (.name "Indexed operator/Indexable Types") $ .pair
