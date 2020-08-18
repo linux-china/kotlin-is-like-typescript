@@ -1,6 +1,6 @@
 const explicitDouble: number = 70;
 // boolean
-// number
+// number, bigint
 // string
 // any, void
 // never
