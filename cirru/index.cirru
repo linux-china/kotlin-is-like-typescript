@@ -36,7 +36,7 @@ html
       .case (.name "Equality") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/equals.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/equals.ts)
-      .case (.name "Nullable/NonNull") $ .pair
+      .case (.name "Nullable/NonNull/Nullish Coalescing") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/nullable.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/nullable.ts)
       .case (.name "String Interpolation") $ .pair

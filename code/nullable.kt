@@ -6,3 +6,6 @@ fun testNullable() {
     name2?.length //nullable check
     name2!!.length //you know that
 }
+
+// Elvis Operator
+val name3 = name2 ?: "good";
