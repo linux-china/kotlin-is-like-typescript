@@ -84,6 +84,9 @@ html
       .case (.name "Function Type") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/function-type.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/function-type.ts)
+      .case (.name "Functional Interface") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/functional-interface.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/functional-interface.ts)
       .case (.name "Lambda/Arrow Function") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/lambda.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/lambda.ts)
