@@ -102,7 +102,7 @@ const myConstant = 42;
 // dynamic
 external fun require(module:String): dynamic</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const explicitDouble: number = 70;
 // boolean
-// number
+// number, bigint
 // string
 // any, void
 // never
@@ -131,19 +131,25 @@ let a: any = 10;
 let b: any = "10"
 console.log(a == b);  //true
 console.log(a == b);  //true
-console.log(a === b); //false, type different</code></pre></div></div></div><div class="case"><div class="name">Nullable/NonNull</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val name1: String = "xx"
+console.log(a === b); //false, type different</code></pre></div></div></div><div class="case"><div class="name">Nullable/NonNull/Nullish Coalescing</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val name1: String = "xx"
 var name2: String? = null
 
 fun testNullable() {
     name2.length //illegal
     name2?.length //nullable check
     name2!!.length //you know that
-}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let name1: string = "xx"
+}
+
+// Elvis Operator
+val name3 = name2 ?: "good";</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>let name1: string = "xx"
 let name2: string | null = null
 
 name2.length //null check validation
 let len = name2?.length //nullable check
-name2!.length //you know that</code></pre></div></div></div><div class="case"><div class="name">String Interpolation</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val apples = 3
+name2!.length //you know that
+
+//Nullish Coalescing
+let x1 = name2 ?? "default value";</code></pre></div></div></div><div class="case"><div class="name">String Interpolation</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val apples = 3
 val oranges = 5
 val fruitSummary = "I have ${apples + oranges} " +
                    "pieces of fruit."
@@ -233,6 +239,9 @@ fun main7() {
     val (a, b, _) = price
 }</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>type GasPrices = [number, number, number]
 
+//Labeled Tuple
+type Range = [start: number, end: number];
+
 function main4() {
     let price: GasPrices = [3.59, 3.69, 3.79]
     let [a, b, c] = price;
@@ -312,7 +321,24 @@ increment(7);
 
 // makeIncrementer can also be written in a shorter way:
 let makeIncrementer = () => (number: number) => 1 + number;
-</code></pre></div></div></div><div class="case"><div class="name">Lambda/Arrow Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//lambda
+</code></pre></div></div></div><div class="case"><div class="name">Functional Interface</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun interface IntPredicate {
+    fun accept(i: Int): Boolean
+}
+
+val isEven = IntPredicate { it % 2 == 0 }
+
+fun main() {
+    println("Is 7 even? - ${isEven.accept(7)}")
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>interface SearchFunc {
+  (source: string, subString: string): boolean;
+}
+
+let mySearch: SearchFunc;
+
+mySearch = function (source: string, subString: string) {
+  let result = source.search(subString);
+  return result > -1;
+};</code></pre></div></div></div><div class="case"><div class="name">Lambda/Arrow Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//lambda
 val printText = { text: String ->
     println(text)
 }</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>//arrow function
@@ -336,7 +362,7 @@ val str = identity("Hello")</code></pre></div><div class="card"><div class="lang
     return value;
 }
 
-let str: string = identity<string>("Hello");</code></pre></div></div></div><div class="case"><div class="name">Generator Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val sequence = sequence {
+let str: string = identity<string>("Hello");</code></pre></div></div></div><div class="case"><div class="name">Generator Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val sequence2 = sequence {
     val start = 0
     // yielding a single value
     yield(start)
@@ -346,7 +372,7 @@ let str: string = identity<string>("Hello");</code></pre></div></div></div><div 
     yieldAll(generateSequence(8) { it * 3 })
 }
 
-println(sequence.take(7).toList()) // [0, 1, 3, 5, 8, 24, 72]</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function* counter(max: number): Generator<number> {
+println(sequence2.take(7).toList()) // [0, 1, 3, 5, 8, 24, 72]</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function* counter(max: number): Generator<number> {
     let i = 0;
     while (i < max) {
         if (yield i++) {
