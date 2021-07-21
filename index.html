@@ -151,12 +151,13 @@ name2!.length //you know that
 //Nullish Coalescing
 let x1 = name2 ?? "default value";</code></pre></div></div></div><div class="case"><div class="name">String Interpolation</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val apples = 3
 val oranges = 5
-val fruitSummary = "I have ${apples + oranges} " +
-                   "pieces of fruit."
+val fruitSummary1 = "I have ${apples + oranges} pieces of fruit."
+val fruitSummary2 = """I have ${apples + oranges} pieces of fruit."""
+val fruitSummary3 = html("""I have ${apples + oranges} pieces of fruit.""")
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const apples = 3;
 const oranges = 5;
-const fruitSummary = `I have ${apples + oranges} ` +
-                   "pieces of fruit.";
+const fruitSummary1 = `I have ${apples + oranges} pieces of fruit.`;
+const fruitSummary2 = html`I have ${apples + oranges} pieces of fruit.`;
 </code></pre></div></div></div><div class="case"><div class="name">Range Operator</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val names = arrayOf("Anna", "Alex", "Brian", "Jack")
 val count = names.count()
 for (i in 0..count - 1) {
@@ -383,6 +384,37 @@ println(sequence2.take(7).toList()) // [0, 1, 3, 5, 8, 24, 72]</code></pre></div
 
 for (let num of counter(3)) {
     console.log(num);
+}
+</code></pre></div></div></div><div class="case"><div class="name">Async Generator Function</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+
+fun simple(): Flow<Int> = flow { // flow builder
+    for (i in 1..3) {
+        delay(100) // pretend we are doing something useful here
+        emit(i) // emit next value
+    }
+}
+
+fun main() = runBlocking<Unit> {
+    // Collect the flow
+    simple().collect { value -> println(value) }
+}</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>// async generator function
+async function* g() {
+  yield 1;
+  await sleep(100);
+  yield* [2, 3];
+  yield* (async function*() {
+    await sleep(100);
+    yield 4;
+  })();
+}
+
+async function f() {
+  //The for-await-of Statement
+  for await (const x of g()) {
+    console.log(x);
+  }
 }
 </code></pre></div></div></div><div class="case"><div class="name">Optional/Default Value Params</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Optional Parameters by default value
 fun sayHello(name: String = "") {
