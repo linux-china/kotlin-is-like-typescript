@@ -115,7 +115,18 @@ const width = 94;
 const widthLabel = label + width;
 </code></pre></div></div></div><div class="case"><div class="name">Type Aliases</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>typealias Name = String;
 typealias NameResolver = () -> String;</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>type Name = string;
-type NameResolver = () => string;</code></pre></div></div></div><div class="case"><div class="name">Equality</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Structural Equality (‘==’), Referential equality (‘===’), .equals method
+type NameResolver = () => string;</code></pre></div></div></div><div class="case"><div class="name">Smart casts</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>fun demo(x: Any) {
+    if (x is String) {
+        print(x.length) // x is automatically cast to String
+    }
+}
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>function foo2(arg: unknown) {
+  if (typeof arg === "string") {
+    // We know this is a string now.
+    console.log(arg.toUpperCase());
+  }
+}
+</code></pre></div></div></div><div class="case"><div class="name">Equality</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//Structural Equality (‘==’), Referential equality (‘===’), .equals method
 data class User(val id: Int, val nick: String)
 
 fun testEquals() {
@@ -681,7 +692,18 @@ class Greeter {
     greet() {
         return "Hello, " + this.greeting;
     }
-}</code></pre></div></div></div><div class="case"><div class="name">Object as Function/invoke operator/Hybrid Types</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Config {
+}</code></pre></div></div></div><div class="case"><div class="name">Object expressions</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>val helloWorld = object {
+    val hello = "Hello"
+    val world = "World"
+    // object expressions extend Any, so `override` is required on `toString()`
+    override fun toString() = "$hello $world"
+}
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>const helloWorld = {
+  name: (): string => {
+    return "";
+  }
+}
+</code></pre></div></div></div><div class="case"><div class="name">Object as Function/invoke operator/Hybrid Types</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>class Config {
     operator fun invoke(): String {
         return "invoke"
     }
@@ -910,4 +932,36 @@ test("hello test", () => {
 * Gradle: project build tool with dev server support
 * dukat: Convert declarations(d.ts) to Kotlin external declarations</code></pre></div><div class="card"><div class="lang">markdown</div><pre class="code"><code>### TypeScript Tools
 * npm/yarn: project build tool
-* webpack: bundle your assets and dev-server support</code></pre></div></div></div></div></body></html>
+* webpack: bundle your assets and dev-server support</code></pre></div></div></div></div><div class="section"><div class="title">Pros/Cons</div><div class="case"><div class="name">Pros</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>//When expression
+when (x) {
+    in 1..10 -> print("x is in the range")
+    in validNumbers -> print("x is valid")
+    !in 10..20 -> print("x is outside the range")
+    else -> print("none of the above")
+}
+
+// DSL
+html {
+  head {
+     title {+"XML encoding with Kotlin"}
+  }
+}
+
+//Operator overloading: https://kotlinlang.org/docs/operator-overloading.html#unary-operations
+
+//Delegated properties
+class Example {
+    var p: String by Delegate()
+}
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>// tagged literal
+const code = html`<span>xxx</span>`
+
+//String Literal Types
+type EventType = "click" | "mouseover";
+
+// union
+type TextOrNumber = string | number;
+
+// tuple
+let x2: [string, number] = ["hello", 10];
+</code></pre></div></div></div></div></body></html>
