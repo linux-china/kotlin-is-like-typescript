@@ -141,6 +141,9 @@ html
       .case (.name "Annotations/Decorators") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/annotations.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/annotations.ts)
+      .case (.name "Object expressions") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/object-expressions.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/object-expressions.ts)
       .case (.name "Object as Function/invoke operator/Hybrid Types") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/object-as-function.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/object-as-function.ts)
@@ -189,3 +192,9 @@ html
       .case (.name "Tools") $ .pair
         .card (.lang markdown) $ pre.code $ code (@insert ../code/tools-kt.md)
         .card (.lang markdown) $ pre.code $ code (@insert ../code/tools-ts.md)
+
+    .section
+      .title Pros/Cons
+      .case (.name "Pros") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/pros.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/pros.ts)
