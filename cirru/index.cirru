@@ -33,7 +33,7 @@ html
       .case (.name "Type Aliases") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/type-aliases.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/type-aliases.ts)
-      .case (.name "Smart Cast") $ .pair
+      .case (.name "Smart casts") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/smart-casts.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/smart-casts.ts)
       .case (.name "Equality") $ .pair
